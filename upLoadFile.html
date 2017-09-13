@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传文件demo</title>
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        .box{
+            position: relative;
+
+        }
+        .file {
+            position: absolute;
+            display: inline-block;
+            background: #D0EEFF;
+            border: 1px solid #99D3F5;
+            border-radius: 4px;
+            padding: 4px 12px;
+            overflow: hidden;
+            color: #1E88C7;
+            text-decoration: none;
+            text-indent: 0;
+            line-height: 20px;
+            left: 10px;
+            top: 10px;
+
+        }
+        .file input {
+            position: absolute;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            filter:alpha(opacity=0);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <a href="javascript:;" class="file" id="file">选择文件
+        <input type="file" name="" id="input">
+    </a>
+</div>
+
+
+<script>
+    var inputHtml='<input type="file" name="" id="file">'
+    var fileDom=document.getElementById('file');
+    var inputDom=document.getElementById('input');
+
+    inputDom.onchange=function () {
+        var filePath=inputDom.value;
+        var arr=filePath.split('\\');
+        var fileName=arr[arr.length-1];
+        fileDom.innerHTML =fileName+inputHtml
+    }
+
+</script>
+
+</body>
+</html>
